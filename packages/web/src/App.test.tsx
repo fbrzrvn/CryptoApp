@@ -1,9 +1,9 @@
+import { render } from '@testing-library/react';
 import React from 'react';
-import { render, screen } from '@testing-library/react';
-import App from './App';
+import Home from './pages/index';
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+describe('Home', () => {
+  it('should render the home without crashing', () => {
+    render(<Home />);
+  });
 });
