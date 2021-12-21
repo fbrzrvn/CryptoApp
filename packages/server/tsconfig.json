@@ -1,6 +1,7 @@
 {
   "extends": "../../tsconfig.json",
   "compilerOptions": {
+    "baseUrl": ".",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "forceConsistentCasingInFileNames": false,
@@ -8,6 +9,9 @@
     "outDir": "./dist",
     "removeComments": true,
     "sourceMap": true,
+    "paths": {
+      "@/*": ["./src/*"]
+    },
     "target": "es2017"
   }
 }
