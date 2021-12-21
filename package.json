@@ -16,8 +16,8 @@
     "npm-run-all": "^4.1.5"
   },
   "scripts": {
-    "server-dev": "yarn workspace server dev",
-    "web-dev": "yarn workspace web start",
+    "server-dev": "yarn workspace server start",
+    "web-dev": "yarn workspace web dev",
     "start": "run-p server-dev web-dev"
   }
 }
