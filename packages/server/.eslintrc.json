@@ -1,0 +1,20 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "jest": true
+  },
+  "extends": ["standard", "prettier"],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": 2020,
+    "sourceType": "module"
+  },
+  "plugins": ["@typescript-eslint"],
+  "rules": {
+    "prefer-destructuring": "off",
+    "object-shorthand": "off",
+    "arrow-body-style": "off",
+    "no-underscore-dangle": "off"
+  }
+}
