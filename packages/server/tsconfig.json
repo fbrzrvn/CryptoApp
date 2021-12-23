@@ -4,14 +4,15 @@
     "baseUrl": ".",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "forceConsistentCasingInFileNames": false,
     "module": "commonjs",
-    "outDir": "./dist",
+    "outDir": "./build",
     "removeComments": true,
     "sourceMap": true,
     "paths": {
       "@/*": ["./src/*"]
     },
-    "target": "es2017"
-  }
+    "target": "es5"
+  },
+  "lib": ["es2015"],
+  "exclude": ["node_modules"]
 }
