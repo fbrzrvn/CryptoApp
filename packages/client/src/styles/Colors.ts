@@ -10,7 +10,7 @@ export const COLORS = {
   gris600: '#757575',
   gris700: '#616161',
   gris800: '#424242',
-  gri900: '#212121',
+  gris900: '#212121',
   danger100: '#ffcdd2',
   danger300: '#e57373',
   danger500: '#f44336',
