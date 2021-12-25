@@ -1,6 +1,11 @@
 import { createGlobalStyle } from 'styled-components';
+import { COLORS } from './Colors';
 
 export const GlobalStyles = createGlobalStyle`
+
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
   *,
   *::before,
   *::after {
@@ -10,31 +15,32 @@ export const GlobalStyles = createGlobalStyle`
   }
   html {
     scroll-behavior: smooth;
-    -ms-overflow-style: none;  /* Internet Explorer 10+ */
     scrollbar-width: none;  /* Firefox */
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
   }
   body {
-		background-color: #282c34;
-		color: #fff;
+		background-color: ${COLORS.white};
+		color: ${COLORS.black};
+  	font-family: 'Montserrat', sans-serif;
+		font-size: 16px;
     font-weight: 400;
-		font-size: calc(10px + 2vmin);
-  	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    	'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    line-height: 1.5;
     text-rendering: optimizelegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    line-height: 1.5;
-    transition: all 1s ease;
   }
   ::-webkit-scrollbar {
     display: none;
+  }
+  h1,h2,h3,h4,h5,h6 {
+    font-family: 'Roboto', sans-serif;
   }
   img {
     display: block;
     max-height: 100%;
     max-width: 100%;
-    width: auto;
     height: auto;
+    width: auto;
   }
   input:-webkit-autofill,
   input:-webkit-autofill:hover,
@@ -61,18 +67,14 @@ export const GlobalStyles = createGlobalStyle`
 		height: 100vh;
 		text-align: center;
 	}
-
 	.App-logo {
 		height: 40vmin;
 		pointer-events: none;
 		animation: App-logo-spin infinite 20s linear;
-
 	}
-
 	.App-link {
 		color: #61dafb;
 	}
-
 	@keyframes App-logo-spin {
 		from {
 			transform: rotate(0deg);
