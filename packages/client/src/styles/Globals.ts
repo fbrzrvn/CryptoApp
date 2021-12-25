@@ -60,20 +60,10 @@ export const GlobalStyles = createGlobalStyle`
     }
   }
 
-	.App {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		height: 100vh;
-		text-align: center;
-	}
 	.App-logo {
 		height: 40vmin;
 		pointer-events: none;
 		animation: App-logo-spin infinite 20s linear;
-	}
-	.App-link {
-		color: #61dafb;
 	}
 	@keyframes App-logo-spin {
 		from {
