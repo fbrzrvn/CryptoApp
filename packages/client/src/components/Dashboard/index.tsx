@@ -1,7 +1,7 @@
-import { Header, Main, Sidebar } from 'components';
+import { Header, Sidebar } from 'components';
 import React, { useState } from 'react';
 import IsLessThan from 'utils/IsLessThan';
-import { GridLayout } from './styles';
+import { GridLayout, Main } from './styles';
 
 const Dashboard = ({ children }) => {
   const [isSidebarOpened, setIsSidebarOpened] = useState(false);
