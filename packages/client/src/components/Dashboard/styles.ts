@@ -1,17 +1,16 @@
 import styled from 'styled-components';
 
-interface GlobalsStyledProps {
-  isLessThan833: boolean;
+interface GridLayoutProps {
+  isLessThan768: boolean;
 }
 
-export const GridLayout = styled.div<GlobalsStyledProps>`
+export const GridLayout = styled.div<GridLayoutProps>`
   display: grid;
   grid-template-columns: ${(props) =>
-    props.isLessThan833 ? '1fr' : 'auto 1fr'};
-  grid-template-rows: ${(props) =>
-    props.isLessThan833 ? '55px 1fr' : '65px 1fr'};
+    props.isLessThan768 ? '1fr' : 'auto 1fr'};
+  grid-template-rows: 65px 1fr;
   grid-template-areas: ${(props) =>
-    props.isLessThan833
+    props.isLessThan768
       ? `"header" "main"`
       : `"sidebar header" "sidebar main"`};
   height: 100%;
