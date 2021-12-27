@@ -15,7 +15,10 @@ const Dashboard = ({ children }: ChildrenProps) => {
 
   return (
     <GridLayout isLessThan768={isLessThan768}>
-      <Header handleSidebarOpened={handleSidebarOpened} />
+      <Header
+        isSidebarOpened={isSidebarOpened}
+        handleSidebarOpened={handleSidebarOpened}
+      />
       <Sidebar
         isSidebarOpened={isSidebarOpened}
         handleSidebarOpened={handleSidebarOpened}

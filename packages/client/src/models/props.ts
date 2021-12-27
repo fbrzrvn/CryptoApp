@@ -5,6 +5,6 @@ export interface ChildrenProps {
 }
 
 export interface DashboardLayoutProps {
-  isSidebarOpened?: boolean;
+  isSidebarOpened: boolean;
   handleSidebarOpened: (e: React.MouseEvent) => void;
 }
