@@ -13,4 +13,9 @@ app.get('/', (req: Request, res: Response, next: NextFunction) => {
   res.json({ message: 'Hello world!' });
 });
 
+app.get('/*', (req: Request, res: Response, next: NextFunction) => {
+  res.status(404);
+  res.json({ message: '404: Page not found!' });
+});
+
 export default app;
