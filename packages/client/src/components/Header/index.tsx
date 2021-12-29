@@ -1,5 +1,5 @@
-import { DashboardLayoutProps } from 'models/props';
 import React from 'react';
+import { DashboardLayoutProps } from 'types/props';
 import IsLessThan from 'utils/IsLessThan';
 import {
   Hamburger,
