@@ -59,18 +59,4 @@ export const GlobalStyles = createGlobalStyle`
       scroll-behavior: auto !important;
     }
   }
-
-	.App-logo {
-		height: 40vmin;
-		pointer-events: none;
-		animation: App-logo-spin infinite 20s linear;
-	}
-	@keyframes App-logo-spin {
-		from {
-			transform: rotate(0deg);
-		}
-		to {
-			transform: rotate(360deg);
-		}
-	}
 `;
