@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { COLORS } from 'styles/Colors';
+import { AppTitle } from 'styles/Mixins';
 
 interface SidebarProps {
   isSidebarOpened: boolean;
@@ -28,6 +29,5 @@ export const SidebarContainer = styled.aside`
 `;
 export const SidebarTitle = styled.h2`
   margin: 0 auto;
-  color: ${COLORS.white};
-  line-height: 65px;
+  ${AppTitle};
 `;

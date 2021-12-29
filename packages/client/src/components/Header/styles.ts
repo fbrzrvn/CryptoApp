@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components';
 import { COLORS } from 'styles/Colors';
+import { AppTitle } from 'styles/Mixins';
 
 const header = css`
   grid-area: header;
@@ -22,8 +23,7 @@ export const HeaderMobile = styled.header`
   justify-content: space-between;
   background: ${COLORS.gris900};
   & h4 {
-    color: ${COLORS.white};
-    letter-spacing: 0.5px;
+    ${AppTitle};
   }
 `;
 export const HamburgerWrapper = styled.button`

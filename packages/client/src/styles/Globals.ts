@@ -2,10 +2,6 @@ import { createGlobalStyle } from 'styled-components';
 import { COLORS } from './Colors';
 
 export const GlobalStyles = createGlobalStyle`
-
-  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500&display=swap');
-  @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
-
   *,
   *::before,
   *::after {
@@ -21,7 +17,7 @@ export const GlobalStyles = createGlobalStyle`
   body {
 		background-color: ${COLORS.white};
 		color: ${COLORS.black};
-  	font-family: 'Montserrat', sans-serif;
+  	font-family: 'Lato', sans-serif;
 		font-size: 16px;
     font-weight: 400;
     line-height: 1.5;
@@ -31,9 +27,6 @@ export const GlobalStyles = createGlobalStyle`
   }
   ::-webkit-scrollbar {
     display: none;
-  }
-  h1,h2,h3,h4,h5,h6 {
-    font-family: 'Roboto', sans-serif;
   }
   img {
     display: block;
