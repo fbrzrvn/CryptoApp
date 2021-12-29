@@ -2,7 +2,7 @@ import { Dashboard } from 'components';
 import logo from 'logo.svg';
 import React from 'react';
 
-const Home = () => {
+const News = () => {
   const [data, setData] = React.useState(null);
 
   React.useEffect(() => {
@@ -14,9 +14,9 @@ const Home = () => {
   return (
     <Dashboard>
       <img src={logo} className="App-logo" alt="logo" />
-      <p>{!data ? 'Loading...' : data}</p>
+      <h2>{!data ? 'Loading...' : data}</h2>
     </Dashboard>
   );
 };
 
-export default Home;
+export default News;

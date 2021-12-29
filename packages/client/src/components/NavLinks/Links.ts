@@ -5,11 +5,12 @@ import {
   faHandHoldingUsd,
   faNewspaper,
 } from '@fortawesome/free-solid-svg-icons';
+import Routes from 'Routes';
 
 export interface LinkType {
   id: number;
   label: string;
-  route: string;
+  route: Routes;
   icon: IconProp;
 }
 
@@ -17,25 +18,25 @@ export const Links = [
   {
     id: 11,
     label: 'News',
-    route: '/',
+    route: Routes.NEWS,
     icon: faNewspaper,
   },
   {
     id: 12,
     label: 'Cryptos',
-    route: '/cryptos',
+    route: Routes.CRYPTOS,
     icon: faBitcoin,
   },
   {
     id: 13,
     label: 'Exchanges',
-    route: '/exchanges',
+    route: Routes.EXCHANGES,
     icon: faExchangeAlt,
   },
   {
     id: 14,
     label: 'Holdfolio',
-    route: '/holdfolio',
+    route: Routes.HOLDFOLIO,
     icon: faHandHoldingUsd,
   },
 ];
