@@ -1,6 +1,7 @@
-import { Header, Sidebar } from 'components';
-import { ChildrenProps } from 'models/props';
+import Header from 'components/Header';
+import Sidebar from 'components/Sidebar';
 import React, { useState } from 'react';
+import { ChildrenProps } from 'types/props';
 import IsLessThan from 'utils/IsLessThan';
 import { GridLayout, Main } from './styles';
 
