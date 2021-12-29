@@ -1,3 +1,4 @@
+import NavLinks from 'components/NavLinks';
 import { DashboardLayoutProps } from 'models/props';
 import React from 'react';
 import IsLessThan from 'utils/IsLessThan';
@@ -15,12 +16,13 @@ const Sidebar = ({
       onClick={handleSidebarOpened}
     >
       <SidebarContainer>
-        <SidebarTitle>Crypto app</SidebarTitle>
+        <NavLinks />
       </SidebarContainer>
     </SidebarMobile>
   ) : (
     <SidebarContainer>
       <SidebarTitle>Crypto app</SidebarTitle>
+      <NavLinks />
     </SidebarContainer>
   );
 };

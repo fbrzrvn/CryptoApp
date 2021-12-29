@@ -7,7 +7,7 @@ interface SidebarProps {
 
 export const SidebarMobile = styled.div<SidebarProps>`
   position: fixed;
-  top: 65px;
+  top: 0;
   bottom: 0;
   left: ${({ isSidebarOpened }) => (isSidebarOpened ? '0' : '-200%')};
   right: ${({ isSidebarOpened }) => (isSidebarOpened ? '0' : '100%')};
@@ -24,10 +24,10 @@ export const SidebarContainer = styled.aside`
   display: flex;
   flex-direction: column;
   width: 255px;
-  background-color: ${COLORS.gris100};
+  background-color: ${COLORS.gris900};
 `;
 export const SidebarTitle = styled.h2`
-  height: 65px;
   margin: 0 auto;
+  color: ${COLORS.white};
   line-height: 65px;
 `;
