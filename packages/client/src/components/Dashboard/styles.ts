@@ -13,8 +13,8 @@ export const GridLayout = styled.div<GridLayoutProps>`
     props.isLessThan768
       ? `"header" "main"`
       : `"sidebar header" "sidebar main"`};
-  height: 100%;
-  width: 100%;
+  height: 100vh;
+  width: 100vw;
   overflow: hidden;
   overscroll-behavior: contain;
 `;
