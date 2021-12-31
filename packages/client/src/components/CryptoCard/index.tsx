@@ -4,7 +4,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { CryptoMapped } from 'Models/Cryptos';
 import React from 'react';
-import formatCurrency from 'utils/formatCurrency';
+import { formatCurrency } from 'utils';
 import {
   Card,
   CardFooter,

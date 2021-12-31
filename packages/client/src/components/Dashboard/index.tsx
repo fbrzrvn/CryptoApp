@@ -2,7 +2,7 @@ import Header from 'components/Header';
 import Sidebar from 'components/Sidebar';
 import React, { useState } from 'react';
 import { ChildrenProps } from 'types/props';
-import IsLessThan from 'utils/IsLessThan';
+import { IsLessThan } from 'utils';
 import { GridLayout, Main } from './styles';
 
 const Dashboard = ({ children }: ChildrenProps) => {

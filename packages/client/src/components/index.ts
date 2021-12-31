@@ -1,3 +1,4 @@
+import CryptoCard from './CryptoCard';
 import Dashboard from './Dashboard';
 
-export { Dashboard };
+export { CryptoCard, Dashboard };

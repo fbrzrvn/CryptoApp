@@ -1,6 +1,5 @@
 import getCryptos from 'api/getCryptos';
-import { Dashboard } from 'components';
-import CryptoCard from 'components/CryptoCard';
+import { CryptoCard, Dashboard } from 'components';
 import React from 'react';
 import { CenteredLayout, GridLayout, MainInnerLayout } from 'styles/layout';
 

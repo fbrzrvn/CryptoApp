@@ -1,6 +1,6 @@
 import React from 'react';
 import { DashboardLayoutProps } from 'types/props';
-import IsLessThan from 'utils/IsLessThan';
+import { IsLessThan } from 'utils';
 import {
   Hamburger,
   HamburgerWrapper,

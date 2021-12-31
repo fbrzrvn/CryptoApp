@@ -1,7 +1,7 @@
 import NavLinks from 'components/NavLinks';
 import React from 'react';
 import { DashboardLayoutProps } from 'types/props';
-import IsLessThan from 'utils/IsLessThan';
+import { IsLessThan } from 'utils';
 import { SidebarContainer, SidebarMobile, SidebarTitle } from './styles';
 
 const Sidebar = ({
