@@ -1,37 +1,37 @@
 import getCryptos from 'api/getCryptos';
 import { Dashboard } from 'components';
+import CryptoCard from 'components/CryptoCard';
 import React from 'react';
+import { CenteredLayout, GridLayout, MainInnerLayout } from 'styles/layout';
 
 const Cryptos = () => {
   const [cryptos, setCryptos] = React.useState([]);
   const [error, setError] = React.useState(null);
-  const [loading, setLoading] = React.useState(false);
-  const [limit, setLimit] = React.useState(50);
 
   React.useEffect(() => {
-    setLoading(true);
-    getCryptos(limit).then((payload) => {
-      setLoading(false);
+    getCryptos().then((payload) => {
       if (payload.error) {
         setError(payload.error);
       }
-      if (payload) {
-        setCryptos(payload.data);
-      }
-      console.log(payload);
+      setCryptos(payload.data);
     });
-  }, [limit]);
+  }, []);
 
   return (
     <Dashboard>
-      <h2>Cryptos page</h2>
-      {loading && <p>Loading...</p>}
-      {error && <p>{error}</p>}
-      {cryptos.length > 0 &&
-        cryptos.map((crypto) => <li key={crypto.id}>{crypto.name}</li>)}
-      {limit <= 200 && (
-        <button onClick={() => setLimit(limit + 50)}>Load more</button>
-      )}
+      <MainInnerLayout>
+        <h2>Cryptos page</h2>
+        {error && <p>{error}</p>}
+        <GridLayout>
+          {cryptos.length > 0 ? (
+            cryptos.map((crypto) => <CryptoCard key={crypto.id} {...crypto} />)
+          ) : (
+            <CenteredLayout>
+              <p>Loading...</p>
+            </CenteredLayout>
+          )}
+        </GridLayout>
+      </MainInnerLayout>
     </Dashboard>
   );
 };
