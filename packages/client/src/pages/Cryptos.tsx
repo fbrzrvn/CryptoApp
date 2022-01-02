@@ -1,34 +1,33 @@
 import getCryptos from 'api/getCryptos';
 import { CryptoCard, Dashboard } from 'components';
+import { CryptoMapped } from 'Models/Cryptos';
 import React from 'react';
+import { useQuery } from 'react-query';
 import { CenteredLayout, GridLayout, MainInnerLayout } from 'styles/layout';
 
 const Cryptos = () => {
-  const [cryptos, setCryptos] = React.useState([]);
-  const [error, setError] = React.useState(null);
-
-  React.useEffect(() => {
-    getCryptos().then((payload) => {
-      if (payload.error) {
-        setError(payload.error);
-      }
-      setCryptos(payload.data);
-    });
-  }, []);
+  const { data, error, isError, isLoading } = useQuery<CryptoMapped[], Error>(
+    'cryptos',
+    getCryptos,
+  );
 
   return (
     <Dashboard>
       <MainInnerLayout>
-        <h2>Cryptos page</h2>
-        {error && <p>{error}</p>}
+        <h2>Best 100 cryptos in the world</h2>
         <GridLayout>
-          {cryptos.length > 0 ? (
-            cryptos.map((crypto) => <CryptoCard key={crypto.id} {...crypto} />)
-          ) : (
+          {isLoading && (
             <CenteredLayout>
               <p>Loading...</p>
             </CenteredLayout>
           )}
+          {isError && (
+            <CenteredLayout>
+              <p>{error.message}</p>
+            </CenteredLayout>
+          )}
+          {data &&
+            data.map((crypto) => <CryptoCard key={crypto.id} {...crypto} />)}
         </GridLayout>
       </MainInnerLayout>
     </Dashboard>

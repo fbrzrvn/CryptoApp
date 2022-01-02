@@ -5,7 +5,15 @@ import { MemoryRouter } from 'react-router-dom';
 import Routes from 'Routes';
 import App from './App';
 
+jest.mock('react-query', () => ({
+  useQuery: () => ({ isLoading: true, error: {}, data: [] }),
+}));
+
 describe('renders pages', () => {
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+
   test('renders app logo', () => {
     render(<App />);
     const appLogo = screen.getByText(/Crypto app/i);
@@ -28,7 +36,7 @@ describe('renders pages', () => {
         <Cryptos />
       </MemoryRouter>,
     );
-    const cryptosTitle = screen.getByText(/Cryptos page/i);
+    const cryptosTitle = screen.getByText(/Best 100 cryptos in the world/i);
     expect(cryptosTitle).toBeInTheDocument();
   });
 

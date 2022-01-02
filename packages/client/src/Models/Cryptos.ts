@@ -26,10 +26,6 @@ export interface Crypto {
   roi: number;
   last_updated: string;
 }
-export interface CryptosApiResponse {
-  data: Crypto[];
-  error: string | null;
-}
 export interface CryptoMapped {
   id: string;
   symbol: string;
