@@ -11,6 +11,7 @@ export const MainInnerLayout = styled.div`
 export const CenteredLayout = styled.div`
   display: grid;
   place-items: center;
+  padding: 0.5rem;
 `;
 
 export const GridLayout = styled.div`
