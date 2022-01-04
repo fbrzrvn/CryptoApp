@@ -1,8 +1,8 @@
 import mapExchanges from 'mappers/exchanges';
-import { Exchanges } from 'Models/Exchanges';
+import { Exchanges, ExchangesMapped } from 'Models/Exchanges';
 import makeApiCall from './api';
 
-const getExchanges = async () => {
+const getExchanges = async (): Promise<ExchangesMapped[]> => {
   const endPoint = `${process.env.REACT_APP_COIN_GEKO_API_URL}/exchanges`;
   const data = await makeApiCall(endPoint);
   return data.map((exchange: Exchanges) => mapExchanges(exchange));
