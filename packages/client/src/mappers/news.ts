@@ -2,14 +2,14 @@ import { News, NewsMapped } from 'Models/News';
 
 const mapNews = (source: News): NewsMapped => {
   return {
-    id: source.id,
-    title: source.title,
-    content: source.content,
-    references: source.references,
-    referenceTitle: source.reference_title,
-    publishedAt: source.published_at,
-    author: source.author,
-    tags: source.tags,
+    category: source.category,
+    datePublished: source.datePublished,
+    description: source.description,
+    thumbnailUrl: source.image.thumbnail.contentUrl ?? '',
+    thumbnailWidth: source.image.thumbnail.width ?? 0,
+    thumbnailHeight: source.image.thumbnail.height ?? 0,
+    name: source.name,
+    provider: source.provider,
     url: source.url,
   };
 };

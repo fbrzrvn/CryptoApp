@@ -1,31 +1,33 @@
 export interface News {
-  id: string;
-  title: string;
-  content: string;
-  references: References;
-  reference_title: string;
-  published_at: string;
-  author: Author;
-  tags: string[];
+  category: string;
+  datePublished: string;
+  description: string;
+  image: Image;
+  name: string;
+  provider: Provider[];
   url: string;
 }
 
-interface References {
-  name: string;
-  url: string;
+interface Image {
+  thumbnail: {
+    contentUrl: string;
+    width: number;
+    height: number;
+  };
 }
-interface Author {
+interface Provider {
+  image: Image;
   name: string;
 }
 
 export interface NewsMapped {
-  id: string;
-  title: string;
-  content: string;
-  references: References;
-  referenceTitle: string;
-  publishedAt: string;
-  author: Author;
-  tags: string[];
+  category: string;
+  datePublished: string;
+  description: string;
+  thumbnailUrl: string;
+  thumbnailWidth: number;
+  thumbnailHeight: number;
+  name: string;
+  provider: Provider[];
   url: string;
 }

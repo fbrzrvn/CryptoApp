@@ -1,12 +1,14 @@
 const makeApiCall = async (
   endPoint: string,
   method: string = 'GET',
+  headers: any = {},
   body?: any,
 ) => {
   const res = await fetch(endPoint, {
     method,
     headers: {
       'Content-Type': 'application/json',
+      ...headers,
     },
     body: JSON.stringify(body),
   });
