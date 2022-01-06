@@ -1,4 +1,4 @@
-import { Exchanges, ExchangesMapped } from 'Models/Exchanges';
+import { Exchanges, ExchangesMapped } from 'models/Exchanges';
 
 const mapExchanges = (source: Exchanges): ExchangesMapped => {
   return {

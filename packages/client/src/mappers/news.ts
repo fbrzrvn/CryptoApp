@@ -1,4 +1,4 @@
-import { News, NewsMapped } from 'Models/News';
+import { News, NewsMapped } from 'models/News';
 
 const mapNews = (source: News): NewsMapped => {
   return {

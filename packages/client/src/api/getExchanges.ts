@@ -1,5 +1,5 @@
 import mapExchanges from 'mappers/exchanges';
-import { Exchanges, ExchangesMapped } from 'Models/Exchanges';
+import { Exchanges, ExchangesMapped } from 'models/Exchanges';
 import makeApiCall from './api';
 
 const getExchanges = async (): Promise<ExchangesMapped[]> => {

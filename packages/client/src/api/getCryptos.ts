@@ -1,5 +1,5 @@
 import mapCryptos from 'mappers/cryptos';
-import { Crypto, CryptoMapped } from 'Models/Cryptos';
+import { Crypto, CryptoMapped } from 'models/Cryptos';
 import makeApiCall from './api';
 
 const getCryptos = async (

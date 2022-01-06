@@ -2,7 +2,7 @@ import {
   faLongArrowAltDown,
   faLongArrowAltUp,
 } from '@fortawesome/free-solid-svg-icons';
-import { CryptoMapped } from 'Models/Cryptos';
+import { CryptoMapped } from 'models/Cryptos';
 import React from 'react';
 import { formatCurrency } from 'utils';
 import {

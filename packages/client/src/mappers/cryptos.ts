@@ -1,4 +1,4 @@
-import { Crypto, CryptoMapped } from 'Models/Cryptos';
+import { Crypto, CryptoMapped } from 'models/Cryptos';
 
 const mapCryptos = (source: Crypto): CryptoMapped => {
   return {

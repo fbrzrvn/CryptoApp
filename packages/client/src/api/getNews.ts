@@ -1,5 +1,5 @@
 import mapNews from 'mappers/news';
-import { News, NewsMapped } from 'Models/News';
+import { News, NewsMapped } from 'models/News';
 import makeApiCall from './api';
 
 const getNews = async (
