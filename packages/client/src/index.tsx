@@ -1,3 +1,4 @@
+import { CurrencyProvider } from 'context/Currency';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { QueryClient, QueryClientProvider } from 'react-query';
@@ -10,8 +11,10 @@ const client = new QueryClient();
 ReactDOM.render(
   <React.StrictMode>
     <QueryClientProvider client={client}>
-      <GlobalStyles />
-      <App />
+      <CurrencyProvider>
+        <GlobalStyles />
+        <App />
+      </CurrencyProvider>
     </QueryClientProvider>
   </React.StrictMode>,
   document.getElementById('root'),
