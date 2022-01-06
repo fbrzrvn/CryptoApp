@@ -19,7 +19,12 @@ import {
   CardPrice,
 } from './styles';
 
-const CryptoCard = (crypto: CryptoMapped) => {
+type CryptoCardProps = {
+  crypto: CryptoMapped;
+  currency: string;
+};
+
+const CryptoCard = ({ crypto, currency }: CryptoCardProps) => {
   return (
     <Card>
       <CardHeader>
@@ -31,15 +36,19 @@ const CryptoCard = (crypto: CryptoMapped) => {
         </CardHeaderText>
         <CardImg src={crypto.image} alt={crypto.name} />
       </CardHeader>
-      <CardPrice>{formatCurrency(crypto.currentPrice)}</CardPrice>
+      <CardPrice>{formatCurrency(crypto.currentPrice, currency)}</CardPrice>
       <CardFooter>
         <CardFooterWrapper>
           <CardFooterIcon icon={faLongArrowAltUp} status="up" />
-          <CardFooterText>{formatCurrency(crypto.high24)}</CardFooterText>
+          <CardFooterText>
+            {formatCurrency(crypto.high24, currency)}
+          </CardFooterText>
         </CardFooterWrapper>
         <CardFooterWrapper>
           <CardFooterIcon icon={faLongArrowAltDown} status="down" />
-          <CardFooterText>{formatCurrency(crypto.low24)}</CardFooterText>
+          <CardFooterText>
+            {formatCurrency(crypto.low24, currency)}
+          </CardFooterText>
         </CardFooterWrapper>
       </CardFooter>
     </Card>

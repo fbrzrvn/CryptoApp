@@ -6,9 +6,10 @@ import { useQuery } from 'react-query';
 import { GridLayout, MainInnerLayout } from 'styles/layout';
 
 const Cryptos = () => {
+  const currency = 'EUR';
   const { data, error, isError, isLoading } = useQuery<CryptoMapped[], Error>(
     'cryptos',
-    getCryptos,
+    () => getCryptos(currency),
   );
 
   return (
@@ -19,7 +20,9 @@ const Cryptos = () => {
           {isLoading && <Loader />}
           {isError && <LoadError error={error.message} />}
           {data &&
-            data.map((crypto) => <CryptoCard key={crypto.id} {...crypto} />)}
+            data.map((crypto) => (
+              <CryptoCard key={crypto.id} crypto={crypto} currency={currency} />
+            ))}
         </GridLayout>
       </MainInnerLayout>
     </Dashboard>
