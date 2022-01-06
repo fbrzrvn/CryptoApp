@@ -13,7 +13,6 @@ export const CenteredLayout = styled.div`
   place-items: center;
   padding: 0.5rem;
 `;
-
 export const GridLayout = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(275px, 1fr));
@@ -21,4 +20,9 @@ export const GridLayout = styled.div`
   justify-content: center;
   gap: 1rem;
   padding: 1.5rem 0;
+`;
+export const FlexBetweenLayout = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 `;
