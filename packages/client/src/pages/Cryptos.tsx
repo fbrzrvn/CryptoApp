@@ -1,21 +1,26 @@
 import getCryptos from 'api/getCryptos';
-import { CryptoCard, Dashboard, Loader, LoadError } from 'components';
-import { CryptoMapped } from 'Models/Cryptos';
+import { CryptoCard, Dashboard, Loader, LoadError, Select } from 'components';
+import { CurrencyContext } from 'context/Currency';
+import { CryptoMapped } from 'models/Cryptos';
 import React from 'react';
 import { useQuery } from 'react-query';
-import { GridLayout, MainInnerLayout } from 'styles/layout';
+import { FlexBetweenLayout, GridLayout, MainInnerLayout } from 'styles/layout';
 
 const Cryptos = () => {
-  const currency = 'EUR';
+  const { currency } = React.useContext(CurrencyContext);
+
   const { data, error, isError, isLoading } = useQuery<CryptoMapped[], Error>(
-    'cryptos',
+    ['cryptos', currency],
     () => getCryptos(currency),
   );
 
   return (
     <Dashboard>
       <MainInnerLayout>
-        <h2>Best 100 cryptos in the world</h2>
+        <FlexBetweenLayout>
+          <h2>Best 100 cryptos in the world</h2>
+          <Select />
+        </FlexBetweenLayout>
         <GridLayout>
           {isLoading && <Loader />}
           {isError && <LoadError error={error.message} />}
