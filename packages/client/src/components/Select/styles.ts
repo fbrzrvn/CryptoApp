@@ -24,7 +24,7 @@ export const SelectInnerWrapper = styled.div<{ isOpen: boolean }>`
   top: 2.5rem;
   display: ${({ isOpen }) => (isOpen ? 'flex' : 'none')};
   flex-direction: column;
-  width: 4rem;
+  min-width: 4rem;
   background: ${COLORS.white};
   border-radius: 4px;
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
@@ -33,12 +33,18 @@ export const SelectOptBtn = styled.button<{ selected: boolean }>`
   height: 40px;
   width: 100%;
   background: ${({ selected }) =>
-    selected ? `${COLORS.gris200}` : 'transparent'};
+    selected ? `${COLORS.blue50}` : 'transparent'};
   border: none;
   border-bottom: 1px solid ${COLORS.gris100};
+  color: ${({ selected }) =>
+    selected ? `${COLORS.blue500}` : `${COLORS.black}`};
   font-weight: ${({ selected }) => (selected ? 700 : 400)};
   cursor: pointer;
+  transition: all 0.25s ease-in-out;
   &:hover {
-    background: ${COLORS.gris200};
+    background: ${COLORS.blue50};
   }
+`;
+export const SelectedOptBtnLabel = styled.span`
+  margin-left: 4px;
 `;
