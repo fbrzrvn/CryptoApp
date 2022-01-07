@@ -9,6 +9,11 @@ export const Card = styled.div`
   border: 1px solid ${COLORS.gris300};
   border-radius: 6px;
   padding: 1rem;
+  cursor: pointer;
+  transition: all 0.25s ease-in-out;
+  &:hover {
+    box-shadow: 0px 0px 10px 0px ${COLORS.gris300};
+  }
 `;
 export const CardHeader = styled.div`
   display: flex;
