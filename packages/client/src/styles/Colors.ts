@@ -30,4 +30,9 @@ export const COLORS = {
   warning500: '#ffeb3b',
   warning700: '#fbc02d',
   warning800: '#f9a825',
+  blue50: '#e3f2fd',
+  blue100: '#bbdefb',
+  blue300: '#64b5f6',
+  blue500: '#2196f3',
+  blue700: '#1976d2',
 };
