@@ -1,23 +1,29 @@
 import getNews from 'api/getNews';
 import { Dashboard, Loader, LoadError } from 'components';
-import { NewsMapped } from 'Models/News';
+import NewsCard from 'components/NewsCard';
+import NewsTags from 'components/NewsTags';
+import { NewsMapped } from 'models/News';
 import React from 'react';
 import { useQuery } from 'react-query';
-import { MainInnerLayout } from 'styles/layout';
+import { GridLayout, MainInnerLayout } from 'styles/layout';
 
 const News = () => {
+  const [category, setCategory] = React.useState('cryptocurrency');
   const { data, error, isError, isLoading } = useQuery<NewsMapped[], Error>(
-    'news',
-    getNews,
+    ['news', category],
+    () => getNews(category),
   );
 
   return (
     <Dashboard>
       <MainInnerLayout>
         <h2>News page</h2>
-        {isLoading && <Loader />}
-        {isError && <LoadError error={error.message} />}
-        {data && data.map((item) => <p key={item.id}>{item.title}</p>)}
+        <NewsTags category={category} setCategory={setCategory} />
+        <GridLayout>
+          {isLoading && <Loader />}
+          {isError && <LoadError error={error.message} />}
+          {data && data.map((news, i) => <NewsCard key={i} {...news} />)}
+        </GridLayout>
       </MainInnerLayout>
     </Dashboard>
   );
