@@ -2,7 +2,7 @@ import {
   faLongArrowAltDown,
   faLongArrowAltUp,
 } from '@fortawesome/free-solid-svg-icons';
-import { CryptoMapped } from 'models/Cryptos';
+import { CryptosMapped } from 'models/Cryptos';
 import React from 'react';
 import { formatCurrency } from 'utils';
 import {
@@ -20,7 +20,7 @@ import {
 } from './styles';
 
 type CryptoCardProps = {
-  crypto: CryptoMapped;
+  crypto: CryptosMapped;
   currency: string;
 };
 

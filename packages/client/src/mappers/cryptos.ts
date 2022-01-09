@@ -1,6 +1,6 @@
-import { Crypto, CryptoMapped } from 'models/Cryptos';
+import { Cryptos, CryptosMapped } from 'models/Cryptos';
 
-const mapCryptos = (source: Crypto): CryptoMapped => {
+const mapCryptos = (source: Cryptos): CryptosMapped => {
   return {
     id: source.id,
     symbol: source.symbol,

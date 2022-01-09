@@ -1,4 +1,4 @@
-export interface Crypto {
+export interface Cryptos {
   id: string;
   symbol: string;
   name: string;
@@ -26,7 +26,7 @@ export interface Crypto {
   roi: number;
   last_updated: string;
 }
-export interface CryptoMapped {
+export interface CryptosMapped {
   id: string;
   symbol: string;
   name: string;
