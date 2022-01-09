@@ -9,6 +9,7 @@ import { CurrencyContext } from 'context/Currency';
 import { useClickOutside } from 'hooks';
 import React from 'react';
 import { CurrencyTypes } from 'types/enums';
+import { getCurrencySymbol } from 'utils';
 import {
   SelectedOpt,
   SelectedOptBtnLabel,
@@ -28,14 +29,14 @@ const Select = () => {
   };
 
   const handleSelect = (value: string): void => {
-    updateCurrency(CurrencyTypes[value]);
+    updateCurrency(value as CurrencyTypes);
     setIsOpen(false);
   };
 
   return (
     <SelectWrapper ref={elementRef}>
       <SelectedOpt onClick={handleClick}>
-        <SelectedOptText>{currency}</SelectedOptText>
+        <SelectedOptText>{getCurrencySymbol(currency)}</SelectedOptText>
         <FontAwesomeIcon
           icon={isOpen ? faCaretUp : faCaretDown}
           onClick={handleClick}
@@ -44,12 +45,12 @@ const Select = () => {
       <SelectInnerWrapper isOpen={isOpen}>
         {currencies.map((c) => (
           <SelectOptBtn
-            key={c}
-            selected={c === currency}
-            onClick={() => handleSelect(c)}
+            key={c.uuid}
+            selected={c.uuid === currency}
+            onClick={() => handleSelect(c.uuid)}
           >
-            {c === currency && <FontAwesomeIcon icon={faCheck} />}
-            <SelectedOptBtnLabel>{c}</SelectedOptBtnLabel>
+            {c.uuid === currency && <FontAwesomeIcon icon={faCheck} />}
+            <SelectedOptBtnLabel>{c.symbol}</SelectedOptBtnLabel>
           </SelectOptBtn>
         ))}
       </SelectInnerWrapper>

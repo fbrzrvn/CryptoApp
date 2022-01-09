@@ -5,8 +5,9 @@ import { CryptosMapped } from 'models/Cryptos';
 import React from 'react';
 import { useQuery } from 'react-query';
 import { FlexBetweenLayout, GridLayout, MainInnerLayout } from 'styles/layout';
+import { getCurrencySymbol } from 'utils';
 
-const Cryptos = () => {
+const Cryptos: React.FC = () => {
   const { currency } = React.useContext(CurrencyContext);
 
   const { data, error, isError, isLoading } = useQuery<CryptosMapped[], Error>(
@@ -26,7 +27,11 @@ const Cryptos = () => {
           {isError && <LoadError error={error.message} />}
           {data &&
             data.map((crypto) => (
-              <CryptoCard key={crypto.id} crypto={crypto} currency={currency} />
+              <CryptoCard
+                key={crypto.uuid}
+                crypto={crypto}
+                currency={getCurrencySymbol(currency)}
+              />
             ))}
         </GridLayout>
       </MainInnerLayout>
