@@ -6,8 +6,10 @@ const mapExchanges = (source: Exchanges): ExchangesMapped => {
     name: source.name,
     yearEstablished: source.year_established,
     country: source.country,
+    description: source.description,
     url: source.url,
     image: source.image,
+    trustScoreRank: source.trust_score_rank,
   };
 };
 

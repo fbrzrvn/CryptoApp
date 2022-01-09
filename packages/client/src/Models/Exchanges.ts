@@ -18,6 +18,8 @@ export interface ExchangesMapped {
   name: string;
   yearEstablished: number;
   country: string;
+  description: string;
   url: string;
   image: string;
+  trustScoreRank: number;
 }
