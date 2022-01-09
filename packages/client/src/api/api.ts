@@ -15,7 +15,7 @@ const makeApiCall = async (
 
   if (!res.ok) {
     const error = await res.text();
-    throw new Error(`Error ${res.status}: ${JSON.parse(error).error}`);
+    throw new Error(`Error ${res.status}: ${JSON.parse(error).message}`);
   }
 
   return await res.json();

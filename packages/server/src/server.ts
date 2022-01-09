@@ -15,7 +15,7 @@ app.get('/', (req: Request, res: Response, next: NextFunction) => {
 
 app.get('/*', (req: Request, res: Response, next: NextFunction) => {
   res.status(404);
-  res.json({ message: '404: Page not found!' });
+  res.json({ message: 'Page not found!' });
 });
 
 export default app;
