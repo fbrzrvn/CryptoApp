@@ -2,6 +2,7 @@ import {
   faLongArrowAltDown,
   faLongArrowAltUp,
 } from '@fortawesome/free-solid-svg-icons';
+import millify from 'millify';
 import { CryptosMapped } from 'models/Cryptos';
 import React from 'react';
 import { formatCurrency } from 'utils';
@@ -24,31 +25,27 @@ type CryptoCardProps = {
   currency: string;
 };
 
-const CryptoCard = ({ crypto, currency }: CryptoCardProps) => {
+const CryptoCard: React.FC<CryptoCardProps> = ({ crypto, currency }) => {
   return (
     <Card>
       <CardHeader>
         <CardHeaderText>
           <CardHeaderTitle>
-            #{crypto.marketCupRank} {crypto.name}
+            #{crypto.rank} {crypto.name}
           </CardHeaderTitle>
           <CardHeaderSymbol>{crypto.symbol}</CardHeaderSymbol>
         </CardHeaderText>
-        <CardImg src={crypto.image} alt={crypto.name} />
+        <CardImg src={crypto.iconUrl} alt={crypto.name} />
       </CardHeader>
-      <CardPrice>{formatCurrency(crypto.currentPrice, currency)}</CardPrice>
+      <CardPrice>{formatCurrency(crypto.price, currency)}</CardPrice>
       <CardFooter>
+        <CardFooterText>{millify(crypto['24hVolume'])}</CardFooterText>
         <CardFooterWrapper>
-          <CardFooterIcon icon={faLongArrowAltUp} status="up" />
-          <CardFooterText>
-            {formatCurrency(crypto.high24, currency)}
-          </CardFooterText>
-        </CardFooterWrapper>
-        <CardFooterWrapper>
-          <CardFooterIcon icon={faLongArrowAltDown} status="down" />
-          <CardFooterText>
-            {formatCurrency(crypto.low24, currency)}
-          </CardFooterText>
+          <CardFooterIcon
+            icon={crypto.change > 0 ? faLongArrowAltUp : faLongArrowAltDown}
+            status={crypto.change > 0 ? 'up' : 'down'}
+          />
+          <CardFooterText>{crypto.change}%</CardFooterText>
         </CardFooterWrapper>
       </CardFooter>
     </Card>

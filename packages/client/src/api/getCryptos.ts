@@ -1,13 +1,19 @@
 import mapCryptos from 'mappers/cryptos';
 import { Cryptos, CryptosMapped } from 'models/Cryptos';
+import { CurrencyTypes } from 'types/enums';
 import makeApiCall from './api';
 
 const getCryptos = async (
-  currency: string = 'usd',
+  currency: string = CurrencyTypes.EUR,
 ): Promise<CryptosMapped[]> => {
-  const endPoint = `${process.env.REACT_APP_COIN_GEKO_API_URL}/coins/markets?vs_currency=${currency}&order=market_cap_desc`;
-  const data = await makeApiCall(endPoint);
-  return data.map((crypto: Cryptos) => mapCryptos(crypto));
+  const endPoint = `${process.env.REACT_APP_COINRANKING_API_URL}/coins?referenceCurrencyUuid=${currency}`;
+  const {
+    data: { coins },
+  } = await makeApiCall(endPoint, 'GET', {
+    'x-rapidapi-host': process.env.REACT_APP_COINRANKING_HOST,
+    'x-rapidapi-key': process.env.REACT_APP_RAPID_API_KEY,
+  });
+  return coins.map((crypto: Cryptos) => mapCryptos(crypto));
 };
 
 export default getCryptos;
