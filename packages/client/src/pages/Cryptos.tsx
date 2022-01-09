@@ -4,10 +4,10 @@ import { CurrencyContext } from 'context/Currency';
 import { CryptosMapped } from 'models/Cryptos';
 import React from 'react';
 import { useQuery } from 'react-query';
-import { FlexBetweenLayout, GridLayout, MainInnerLayout } from 'styles/layout';
+import { FlexBetweenLayout, GridLayout, MainInnerLayout } from 'styles/Layout';
 import { getCurrencySymbol } from 'utils';
 
-const Cryptos: React.FC = () => {
+const Cryptos: React.VFC = () => {
   const { currency } = React.useContext(CurrencyContext);
 
   const { data, error, isError, isLoading } = useQuery<CryptosMapped[], Error>(

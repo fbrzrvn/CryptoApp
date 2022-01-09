@@ -5,7 +5,7 @@ import { ChildrenProps } from 'types/props';
 import { IsLessThan } from 'utils';
 import { GridLayout, Main } from './styles';
 
-const Dashboard = ({ children }: ChildrenProps) => {
+const Dashboard: React.VFC<ChildrenProps> = ({ children }) => {
   const [isSidebarOpened, setIsSidebarOpened] = useState(false);
   const isLessThan768 = IsLessThan(768);
 

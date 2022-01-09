@@ -28,7 +28,7 @@ export const Main = styled.main`
   &::-webkit-scrollbar {
     display: none;
   }
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 992px) {
     padding: 1.5rem 1.5rem 0;
   }
   @media (min-width: 1540px) {

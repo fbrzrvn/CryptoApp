@@ -7,7 +7,7 @@ interface NewsTagsProps {
   setCategory: (category: string) => void;
 }
 
-const NewsTags: React.FC<NewsTagsProps> = ({ category, setCategory }) => {
+const NewsTags: React.VFC<NewsTagsProps> = ({ category, setCategory }) => {
   return (
     <TagsWrapper>
       {tags.map((tag) => (

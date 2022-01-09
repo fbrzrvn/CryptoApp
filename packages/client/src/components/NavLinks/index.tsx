@@ -2,7 +2,7 @@ import React from 'react';
 import { Links, LinkType } from './Links';
 import { NavLinkIcon, NavLinkItem, NavLinksWrapper } from './styles';
 
-const NavLinks = () => {
+const NavLinks: React.VFC = () => {
   return (
     <NavLinksWrapper>
       {Links.map((link: LinkType) => (

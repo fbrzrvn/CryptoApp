@@ -27,3 +27,10 @@ export interface CryptosMapped {
   symbol: string;
   uuid: string;
 }
+
+export interface CryptosResponse {
+  status: string;
+  data: {
+    coins: Cryptos[];
+  };
+}

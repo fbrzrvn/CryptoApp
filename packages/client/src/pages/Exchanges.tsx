@@ -4,9 +4,9 @@ import ExchangeCard from 'components/ExchangeCard';
 import { ExchangesMapped } from 'models/Exchanges';
 import React from 'react';
 import { useQuery } from 'react-query';
-import { GridLayout, MainInnerLayout } from 'styles/layout';
+import { GridLayout, MainInnerLayout } from 'styles/Layout';
 
-const Exchanges: React.FC = () => {
+const Exchanges: React.VFC = () => {
   const { data, error, isError, isLoading } = useQuery<
     ExchangesMapped[],
     Error

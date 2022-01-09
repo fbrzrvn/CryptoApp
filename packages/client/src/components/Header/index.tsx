@@ -8,10 +8,10 @@ import {
   HeaderMobile,
 } from './styles';
 
-const Header = ({
+const Header: React.VFC<DashboardLayoutProps> = ({
   isSidebarOpened,
   handleSidebarOpened,
-}: DashboardLayoutProps) => {
+}) => {
   const isLessThan768 = IsLessThan(768);
 
   return isLessThan768 ? (

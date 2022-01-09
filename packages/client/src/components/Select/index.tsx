@@ -19,7 +19,7 @@ import {
   SelectWrapper,
 } from './styles';
 
-const Select = () => {
+const Select: React.VFC = () => {
   const { currency, updateCurrency } = React.useContext(CurrencyContext);
   const [isOpen, setIsOpen] = React.useState(false);
   const elementRef = useClickOutside(() => setIsOpen(false));

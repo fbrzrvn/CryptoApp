@@ -2,9 +2,9 @@ import getNotFound from 'api/getNotFound';
 import { Loader, LoadError } from 'components';
 import React from 'react';
 import { useQuery } from 'react-query';
-import { CenteredLayout, MainInnerLayout } from 'styles/layout';
+import { CenteredLayout, MainInnerLayout } from 'styles/Layout';
 
-const NotFound: React.FC = () => {
+const NotFound: React.VFC = () => {
   const { error, isError, isLoading } = useQuery<string, Error>(
     'not-found',
     getNotFound,

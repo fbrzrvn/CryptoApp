@@ -1,12 +1,13 @@
 import { faCogs } from '@fortawesome/free-solid-svg-icons';
 import React from 'react';
-import { CenteredLayout } from 'styles/layout';
+import { CenteredLayout } from 'styles/Layout';
 import { LoadErrorIcon, LoadErrorText } from './styles';
 
-type LoadErrorProps = {
+interface LoadErrorProps {
   error: string;
-};
-const LoadError = ({ error }: LoadErrorProps) => {
+}
+
+const LoadError: React.VFC<LoadErrorProps> = ({ error }) => {
   return (
     <CenteredLayout>
       <LoadErrorIcon icon={faCogs} />

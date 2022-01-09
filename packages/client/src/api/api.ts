@@ -1,9 +1,9 @@
-const makeApiCall = async (
+const makeApiCall = async <T>(
   endPoint: string,
   method: string = 'GET',
   headers: any = {},
   body?: any,
-) => {
+): Promise<T> => {
   const res = await fetch(endPoint, {
     method,
     headers: {

@@ -5,9 +5,9 @@ import NewsTags from 'components/NewsTags';
 import { NewsMapped } from 'models/News';
 import React from 'react';
 import { useQuery } from 'react-query';
-import { GridLayout, MainInnerLayout } from 'styles/layout';
+import { GridLayout, MainInnerLayout } from 'styles/Layout';
 
-const News = () => {
+const News: React.VFC = () => {
   const [category, setCategory] = React.useState('cryptocurrency');
   const { data, error, isError, isLoading } = useQuery<NewsMapped[], Error>(
     ['news', category],

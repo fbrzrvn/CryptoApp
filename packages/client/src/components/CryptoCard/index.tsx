@@ -20,12 +20,12 @@ import {
   CardPrice,
 } from './styles';
 
-type CryptoCardProps = {
+interface CryptoCardProps {
   crypto: CryptosMapped;
   currency: string;
-};
+}
 
-const CryptoCard: React.FC<CryptoCardProps> = ({ crypto, currency }) => {
+const CryptoCard: React.VFC<CryptoCardProps> = ({ crypto, currency }) => {
   return (
     <Card>
       <CardHeader>

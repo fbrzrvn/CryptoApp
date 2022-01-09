@@ -1,9 +1,9 @@
 import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 import React from 'react';
-import { CenteredLayout } from 'styles/layout';
+import { CenteredLayout } from 'styles/Layout';
 import { LoaderIcon, LoaderText } from './styles';
 
-const Loader = () => {
+const Loader: React.VFC = () => {
   return (
     <CenteredLayout>
       <LoaderIcon icon={faSpinner} spin />

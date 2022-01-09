@@ -1,8 +1,8 @@
 import { Dashboard } from 'components';
 import React from 'react';
-import { MainInnerLayout } from 'styles/layout';
+import { MainInnerLayout } from 'styles/Layout';
 
-const Holdfolio = () => {
+const Holdfolio: React.VFC = () => {
   return (
     <Dashboard>
       <MainInnerLayout>

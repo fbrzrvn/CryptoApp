@@ -4,10 +4,10 @@ import { DashboardLayoutProps } from 'types/props';
 import { IsLessThan } from 'utils';
 import { SidebarContainer, SidebarMobile, SidebarTitle } from './styles';
 
-const Sidebar = ({
+const Sidebar: React.VFC<DashboardLayoutProps> = ({
   isSidebarOpened,
   handleSidebarOpened,
-}: DashboardLayoutProps) => {
+}) => {
   const isLessThan768 = IsLessThan(768);
 
   return isLessThan768 ? (

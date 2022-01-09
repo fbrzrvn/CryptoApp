@@ -10,7 +10,7 @@ import {
   CardImg,
 } from './styles';
 
-const ExchangeCard: React.FC<ExchangesMapped> = (exchange) => {
+const ExchangeCard: React.VFC<ExchangesMapped> = (exchange) => {
   const handleClick = () => {
     window.open(exchange.url, '_blank', 'noopener noreferrer');
   };

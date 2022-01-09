@@ -31,3 +31,7 @@ export interface NewsMapped {
   provider: Provider[];
   url: string;
 }
+
+export interface NewsResponse {
+  value: News[];
+}
