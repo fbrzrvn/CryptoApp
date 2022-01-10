@@ -5,6 +5,8 @@ import {
 import millify from 'millify';
 import { CryptosMapped } from 'models/Cryptos';
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import Routes from 'Routes';
 import { formatCurrency } from 'utils';
 import {
   Card,
@@ -26,8 +28,14 @@ interface CryptoCardProps {
 }
 
 const CryptoCard: React.VFC<CryptoCardProps> = ({ crypto, currency }) => {
+  const navigate = useNavigate();
+
+  const handleClick = (): void => {
+    navigate(`${Routes.CRYPTOS}/${crypto.uuid}`);
+  };
+
   return (
-    <Card>
+    <Card onClick={handleClick}>
       <CardHeader>
         <CardHeaderText>
           <CardHeaderTitle>
