@@ -1,64 +1,95 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import CryptoTable from 'components/CryptoTable';
 import { currencies } from 'constants/currencies';
+import { iconsLinks } from 'constants/iconsLinks';
 import { CurrencyContext } from 'context/Currency';
 import millify from 'millify';
-import { CryptoLinks, CryptoMapped } from 'models/Crypto';
+import { CryptoLinks, CryptoMapped, CryptoTableData } from 'models/Crypto';
 import React from 'react';
 import ReactHtmlParser from 'react-html-parser';
 import { formatCurrency, getCurrencySymbol } from 'utils';
+import {
+  CryptoDescription,
+  CryptoHeader,
+  CryptoImage,
+  CryptoLabel,
+  CryptoLink,
+  CryptoLinksWrapper,
+  CryptoSection,
+  CryptoSubtitle,
+  CryptoTitle,
+} from './styles';
 
 const CryptoDetails: React.VFC<CryptoMapped> = (crypto) => {
   const { currency } = React.useContext(CurrencyContext);
   const currentCurrency = currencies.find((c) => c.uuid === currency);
 
+  const valueStats: CryptoTableData[] = [
+    {
+      title: 'Price',
+      value: formatCurrency(crypto.price, getCurrencySymbol(currency)),
+    },
+    {
+      title: 'All Time High',
+      value: formatCurrency(
+        +crypto.allTimeHigh.price,
+        getCurrencySymbol(currency),
+      ),
+    },
+    { title: '24h Volume', value: millify(crypto['24hVolume']) },
+    { title: 'Market Cap', value: millify(crypto.marketCap) },
+  ];
+
+  const infoStats: CryptoTableData[] = [
+    { title: 'Total Supply', value: millify(crypto.supplyTotal) },
+    { title: 'Circulating Supply', value: millify(crypto.supplyCirculating) },
+    { title: 'N. Exchanges', value: crypto.numberOfExchanges },
+    { title: 'N. Markets', value: crypto.numberOfMarkets },
+  ];
+
   return (
-    <>
-      <h1>{crypto.name}</h1>
-      <p>
+    <article>
+      <CryptoHeader>
+        <CryptoImage src={crypto.iconUrl} alt={crypto.name} />
+        <h1>{crypto.name}</h1>
+      </CryptoHeader>
+      <CryptoSubtitle>
         {`${crypto.name} live price in ${currentCurrency.name}
         (${currentCurrency.symbol}). View value statistics, market cap and supply.`}
-      </p>
+      </CryptoSubtitle>
 
-      <h3>Value Statistics</h3>
-      <p>
-        An overview showing the statistics of {crypto.name}, such as the base
-        and quote currency, the rank, and trading volume.
-      </p>
-      <p>Price: {formatCurrency(crypto.price, getCurrencySymbol(currency))}</p>
-      <p>Rank: {crypto.rank}</p>
-      <p>24h Volume: {millify(crypto['24hVolume'])}</p>
-      <p>Market Cap: {millify(crypto.marketCap)}</p>
-      <p>
-        All-time-high(daily avg.):{' '}
-        {formatCurrency(+crypto.allTimeHigh.price, getCurrencySymbol(currency))}
-      </p>
+      <CryptoSection>
+        <CryptoLabel>Value Statistics</CryptoLabel>
+        <CryptoTable tableData={valueStats} />
+      </CryptoSection>
 
-      <h3>Other Stats Info</h3>
-      <p>
-        An overview showing the statistics of {crypto.name}, such as the base
-        and quote currency, the rank, and trading volume.
-      </p>
-      <p>Number Of Exchanges: {crypto.numberOfExchanges}</p>
-      <p>Number Of Markets: {crypto.numberOfMarkets}</p>
-      <p>Aprroved Supply: {crypto.supplyCorfirmed ? 'yes' : 'nope'}</p>
-      <p>Circulating Supply: {millify(crypto.supplyCirculating)}</p>
-      <p>Total Supply: {millify(crypto.supplyTotal)}</p>
+      <CryptoSection>
+        <CryptoLabel>Info Statistics</CryptoLabel>
+        <CryptoTable tableData={infoStats} />
+      </CryptoSection>
 
-      <h3>What is {crypto.name}?</h3>
-      <div>{ReactHtmlParser(crypto.description)}</div>
+      <CryptoDescription>
+        <CryptoTitle>What is {crypto.name}?</CryptoTitle>
+        {ReactHtmlParser(crypto.description)}
+      </CryptoDescription>
 
-      <h4>{crypto.name} Links</h4>
-      <ul>
-        {crypto.links.map((link: CryptoLinks, i: number) => (
-          <li key={i}>
-            <span>{link.type}</span>
-            <a href={link.url} target="_blank" rel="noopener noreferrer">
-              {' '}
-              {link.name}
-            </a>
-          </li>
-        ))}
-      </ul>
-    </>
+      <CryptoSection>
+        <h3>{crypto.name} Links</h3>
+        <CryptoLinksWrapper>
+          {crypto.links.map((link: CryptoLinks, i) => (
+            <CryptoLink
+              key={i}
+              href={link.url}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FontAwesomeIcon icon={iconsLinks[link.type]} />
+              {link.type}
+            </CryptoLink>
+          ))}
+        </CryptoLinksWrapper>
+      </CryptoSection>
+    </article>
   );
 };
 
