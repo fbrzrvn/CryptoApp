@@ -16,7 +16,7 @@ export const GlobalStyles = createGlobalStyle`
   }
   body {
 		background-color: ${COLORS.white};
-		color: ${COLORS.black};
+		color: ${COLORS.gris900};
   	font-family: 'Lato', sans-serif;
 		font-size: 16px;
     font-weight: 400;
@@ -27,6 +27,18 @@ export const GlobalStyles = createGlobalStyle`
   }
   ::-webkit-scrollbar {
     display: none;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    color: ${COLORS.black};
+  }
+  a {
+    color: ${COLORS.blue400};
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.25s ease-in-out;
+    &:hover {
+      color: ${COLORS.blue500};
+    }
   }
   img {
     display: block;

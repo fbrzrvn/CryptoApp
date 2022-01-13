@@ -52,12 +52,7 @@ export const CryptoLink = styled.a`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  color: ${COLORS.blue500};
-  text-decoration: none;
   text-transform: capitalize;
-  &:hover {
-    color: ${COLORS.blue300};
-  }
   .svg-inline--fa {
     width: 2rem;
     height: 1.5rem;

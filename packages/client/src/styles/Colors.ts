@@ -33,6 +33,7 @@ export const COLORS = {
   blue50: '#e3f2fd',
   blue100: '#bbdefb',
   blue300: '#64b5f6',
+  blue400: '#42a5f5',
   blue500: '#2196f3',
   blue700: '#1976d2',
 };
