@@ -2,7 +2,6 @@ import {
   faLongArrowAltDown,
   faLongArrowAltUp,
 } from '@fortawesome/free-solid-svg-icons';
-import millify from 'millify';
 import { CryptosMapped } from 'models/Cryptos';
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -38,16 +37,13 @@ const CryptoCard: React.VFC<CryptoCardProps> = ({ crypto, currency }) => {
     <Card onClick={handleClick}>
       <CardHeader>
         <CardHeaderText>
-          <CardHeaderTitle>
-            #{crypto.rank} {crypto.name}
-          </CardHeaderTitle>
+          <CardHeaderTitle>{crypto.name}</CardHeaderTitle>
           <CardHeaderSymbol>{crypto.symbol}</CardHeaderSymbol>
         </CardHeaderText>
         <CardImg src={crypto.iconUrl} alt={crypto.name} />
       </CardHeader>
-      <CardPrice>{formatCurrency(crypto.price, currency)}</CardPrice>
       <CardFooter>
-        <CardFooterText>{millify(crypto['24hVolume'])}</CardFooterText>
+        <CardPrice>{formatCurrency(crypto.price, currency)}</CardPrice>
         <CardFooterWrapper>
           <CardFooterIcon
             icon={crypto.change > 0 ? faLongArrowAltUp : faLongArrowAltDown}

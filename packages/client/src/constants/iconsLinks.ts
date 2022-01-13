@@ -1,14 +1,17 @@
 import {
+  faBitcoin,
   faDiscord,
   faFacebook,
   faGithub,
   faInstagram,
+  faLinkedin,
+  faMedium,
   faReddit,
   faTelegram,
   faTwitter,
   faYoutube,
 } from '@fortawesome/free-brands-svg-icons';
-import { faLink } from '@fortawesome/free-solid-svg-icons';
+import { faCubes, faLink } from '@fortawesome/free-solid-svg-icons';
 
 export const iconsLinks = {
   website: faLink,
@@ -20,4 +23,8 @@ export const iconsLinks = {
   instagram: faInstagram,
   youtube: faYoutube,
   discord: faDiscord,
+  medium: faMedium,
+  linkedin: faLinkedin,
+  bitcointalk: faBitcoin,
+  explorer: faCubes,
 };

@@ -19,7 +19,7 @@ const ExchangeCard: React.VFC<ExchangesMapped> = (exchange) => {
     <Card onClick={handleClick}>
       <CardHeader>
         <CardHeaderText>
-          <CardHeaderTitle>{`#${exchange.trustScoreRank} ${exchange.name}`}</CardHeaderTitle>
+          <CardHeaderTitle>{exchange.name}</CardHeaderTitle>
           <CardHeaderTextDetails>
             <CardDetails>{exchange?.country}</CardDetails>
             <CardDetails>{exchange?.yearEstablished}</CardDetails>

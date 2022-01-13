@@ -29,6 +29,8 @@ const CryptoDetails: React.VFC<CryptoMapped> = (crypto) => {
       title: 'Price',
       value: formatCurrency(crypto.price, getCurrencySymbol(currency)),
     },
+    { title: '24h Volume', value: millify(crypto['24hVolume']) },
+    { title: 'Market Cap', value: millify(crypto.marketCap) },
     {
       title: 'All Time High',
       value: formatCurrency(
@@ -36,15 +38,13 @@ const CryptoDetails: React.VFC<CryptoMapped> = (crypto) => {
         getCurrencySymbol(currency),
       ),
     },
-    { title: '24h Volume', value: millify(crypto['24hVolume']) },
-    { title: 'Market Cap', value: millify(crypto.marketCap) },
   ];
 
   const infoStats: CryptoTableData[] = [
     { title: 'Total Supply', value: millify(crypto.supplyTotal) },
     { title: 'Circulating Supply', value: millify(crypto.supplyCirculating) },
-    { title: 'N. Exchanges', value: crypto.numberOfExchanges },
     { title: 'N. Markets', value: crypto.numberOfMarkets },
+    { title: 'N. Exchanges', value: crypto.numberOfExchanges },
   ];
 
   return (
