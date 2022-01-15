@@ -4,6 +4,7 @@ const mapCrypto = (source: Crypto): CryptoMapped => {
   return {
     '24hVolume': +source['24hVolume'],
     allTimeHigh: source.allTimeHigh,
+    btcPrice: source.btcPrice,
     change: +source.change,
     description: source.description,
     iconUrl: source.iconUrl,

@@ -1,4 +1,4 @@
-import { Cryptos } from './Cryptos';
+import { Cryptos, CryptosMapped } from './Cryptos';
 
 export interface Crypto extends Cryptos {
   allTimeHigh: CryptoHistory;
@@ -25,25 +25,15 @@ export interface CryptoHistory {
   timestamp: number;
 }
 
-export interface CryptoMapped {
-  '24hVolume': number;
+export interface CryptoMapped extends CryptosMapped {
   allTimeHigh: CryptoHistory;
-  change: number;
   description: string;
-  iconUrl: string;
   links: CryptoLinks[];
-  marketCap: number;
-  name: string;
   numberOfExchanges: number;
   numberOfMarkets: number;
-  price: number;
-  rank: number;
-  symbol: string;
-  sparkline: string[];
   supplyCorfirmed: boolean;
   supplyCirculating: number;
   supplyTotal: number;
-  uuid: string;
   websiteUrl: string;
 }
 

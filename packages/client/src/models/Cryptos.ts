@@ -18,6 +18,7 @@ export interface Cryptos {
 }
 export interface CryptosMapped {
   '24hVolume': number;
+  btcPrice: string;
   change: number;
   iconUrl: string;
   marketCap: number;
@@ -25,6 +26,7 @@ export interface CryptosMapped {
   price: number;
   rank: number;
   symbol: string;
+  sparkline: string[];
   uuid: string;
 }
 

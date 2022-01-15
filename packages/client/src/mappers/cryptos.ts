@@ -3,6 +3,7 @@ import { Cryptos, CryptosMapped } from 'models/Cryptos';
 const mapCryptos = (source: Cryptos): CryptosMapped => {
   return {
     '24hVolume': +source['24hVolume'],
+    btcPrice: source.btcPrice,
     change: +source.change,
     iconUrl: source.iconUrl,
     marketCap: +source.marketCap,
@@ -10,6 +11,7 @@ const mapCryptos = (source: Cryptos): CryptosMapped => {
     price: +source.price,
     rank: source.rank,
     symbol: source.symbol,
+    sparkline: source.sparkline,
     uuid: source.uuid,
   };
 };
