@@ -7,7 +7,7 @@ const getCryptoHistory = async (
   timePeriod: string,
   currency: string = CurrencyTypes.EUR,
 ): Promise<CryptoHistory[]> => {
-  const endPoint = `${process.env.REACT_APP_COINRANKING_API_URL}/coin/${cryptoUuid}/history?timeperiod=${timePeriod}?referenceCurrencyUuid=${currency}`;
+  const endPoint = `${process.env.REACT_APP_COINRANKING_API_URL}/coin/${cryptoUuid}/history?timePeriod=${timePeriod}&referenceCurrencyUuid=${currency}`;
   const {
     data: { history },
   }: CryptoHistoryResponse = await makeApiCall(endPoint, 'GET', {
