@@ -46,10 +46,12 @@ export interface CryptoResponse {
 
 export interface CryptoHistoryResponse {
   status: string;
-  data: {
-    change: string;
-    history: CryptoHistory[];
-  };
+  data: CryptoHistoryResponseData;
+}
+
+export interface CryptoHistoryResponseData {
+  change: string;
+  history: CryptoHistory[];
 }
 
 export interface CryptoTableData {
