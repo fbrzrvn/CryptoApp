@@ -49,12 +49,12 @@ export const CardFooter = styled.div`
 export const CardPrice = styled.h2`
   color: ${COLORS.gris900};
   font-weight: 500;
-  font-size: 2rem;
+  font-size: 1.8rem;
 `;
 export const CardFooterWrapper = styled.div`
   display: flex;
   align-items: center;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
 `;
 export const CardFooterIcon = styled(FontAwesomeIcon)<{ status: string }>`
   color: ${({ status }) =>
