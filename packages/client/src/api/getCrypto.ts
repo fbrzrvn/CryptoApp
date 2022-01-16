@@ -7,7 +7,7 @@ const getCrypto = async (
   cryptoUuid: string,
   currency: string = CurrencyTypes.EUR,
 ): Promise<CryptoMapped> => {
-  const endPoint = `${process.env.REACT_APP_COINRANKING_API_URL}/coin/${cryptoUuid}?timeperiod=7d?referenceCurrencyUuid=${currency}`;
+  const endPoint = `${process.env.REACT_APP_COINRANKING_API_URL}/coin/${cryptoUuid}?referenceCurrencyUuid=${currency}`;
   const {
     data: { coin },
   }: CryptoResponse = await makeApiCall(endPoint, 'GET', {
