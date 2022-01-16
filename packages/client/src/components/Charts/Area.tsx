@@ -1,20 +1,27 @@
 import getCryptoHistory from 'api/getCryptoHistory';
 import { Loader, LoadError } from 'components';
+import ChartsBtns from 'components/ChartBtns';
+import CryptoOverview from 'components/CryptoOverview';
 import { CurrencyContext } from 'context/Currency';
 import { CryptoHistoryResponseData } from 'models/Crypto';
 import React from 'react';
 import Chart from 'react-apexcharts';
 import { useQuery } from 'react-query';
 import { useParams } from 'react-router-dom';
+import { areaChartConfig } from './config';
 
 interface ChartProps {
   cryptoPrice: number;
+  timePeriod: string;
+  setTimePeriod: (timePeriod: string) => void;
 }
 
-const AreaChart: React.VFC<ChartProps> = ({ cryptoPrice }) => {
+const AreaChart: React.VFC<ChartProps> = ({
+  cryptoPrice,
+  timePeriod,
+  setTimePeriod,
+}) => {
   const { currency } = React.useContext(CurrencyContext);
-  const [timePeriod, setTimePeriod] = React.useState('24h');
-
   const { id } = useParams();
 
   const { data, error, isError, isLoading } = useQuery<
@@ -23,9 +30,7 @@ const AreaChart: React.VFC<ChartProps> = ({ cryptoPrice }) => {
   >(
     ['cryptoHistory', id, timePeriod, currency],
     () => getCryptoHistory(id, timePeriod, currency),
-    {
-      staleTime: Infinity,
-    },
+    { staleTime: Infinity },
   );
 
   const price = [];
@@ -33,26 +38,18 @@ const AreaChart: React.VFC<ChartProps> = ({ cryptoPrice }) => {
 
   if (data) {
     for (let i = 0; i < data.history.length; i += 1) {
-      price.push(data.history[i].price);
+      price.push(+data.history[i].price);
       timestamp.push(new Date(data.history[i].timestamp * 1000).toISOString());
     }
   }
 
   const chartData = {
     options: {
-      chart: { id: 'area-chart', zoom: { autoScaleYaxis: true } },
-      dataLabels: { enabled: false },
-      markers: { size: 0, style: 'hollow' },
-      xaxis: { categories: timestamp, labels: { show: false } },
-      yaxis: { labels: { show: false } },
-      fill: {
-        type: 'gradient',
-        gradient: {
-          shadeIntensity: 1,
-          opacityFrom: 0.5,
-          opacityTo: 0,
-          stops: [0, 90, 100],
-        },
+      ...areaChartConfig.options,
+      xaxis: {
+        categories: timestamp,
+        name: 'Time',
+        type: 'datetime' as 'datetime',
       },
     },
     series: [{ data: price, name: 'Price' }],
@@ -63,12 +60,20 @@ const AreaChart: React.VFC<ChartProps> = ({ cryptoPrice }) => {
       {isLoading && <Loader />}
       {isError && <LoadError error={error.message} />}
       {data && (
-        <Chart
-          options={chartData.options}
-          series={chartData.series}
-          type="area"
-          width="100%"
-        />
+        <>
+          <CryptoOverview
+            cryptoPrice={cryptoPrice}
+            timePeriod={timePeriod}
+            change={data.change}
+          />
+          <Chart
+            options={chartData.options}
+            series={chartData.series}
+            type="area"
+            width="100%"
+          />
+          <ChartsBtns timePeriod={timePeriod} setTimePeriod={setTimePeriod} />
+        </>
       )}
     </>
   );
