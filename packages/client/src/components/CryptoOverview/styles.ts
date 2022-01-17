@@ -6,9 +6,9 @@ export const Container = styled.div`
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  margin-bottom: 1rem;
+  margin: 1rem auto;
   padding: 0.5rem 1rem;
-  border: 1px solid ${COLORS.gris400};
+  border: 1px solid ${COLORS.blue50};
   border-radius: 6px;
 `;
 export const Wrapper = styled.div`
@@ -22,14 +22,16 @@ export const WrapperInner = styled.div`
   align-items: center;
 `;
 export const Label = styled.p`
-  font-size: 1.1rem;
-  font-weight: 700;
   color: ${COLORS.gris600};
+  font-weight: 700;
+  font-size: 1.1rem;
+  user-select: none;
 `;
 export const PriceText = styled.p`
   color: ${COLORS.black};
   font-weight: 700;
   font-size: 1.4rem;
+  user-select: none;
 `;
 export const ChangeText = styled.p<{ status: string }>`
   margin: auto;
@@ -37,4 +39,5 @@ export const ChangeText = styled.p<{ status: string }>`
     status === 'up' ? `${COLORS.success700}` : `${COLORS.danger700}`};
   font-weight: 700;
   font-size: 1.2rem;
+  user-select: none;
 `;

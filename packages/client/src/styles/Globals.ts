@@ -32,12 +32,12 @@ export const GlobalStyles = createGlobalStyle`
     color: ${COLORS.black};
   }
   a {
-    color: ${COLORS.blue400};
+    color: ${COLORS.blue700};
     font-weight: 700;
     text-decoration: none;
     transition: all 0.25s ease-in-out;
     &:hover {
-      color: ${COLORS.blue500};
+      text-decoration: underline;
     }
   }
   img {

@@ -11,7 +11,7 @@ export const Wrapper = styled.div`
   border-radius: 6px;
   @media screen and (min-width: 400px) {
     width: max-content;
-    border: 1px solid ${COLORS.gris300};
+    border: 1px solid ${COLORS.blue50};
   }
   @media screen and (min-width: 883px) {
     padding: 0.25rem 0.5rem;

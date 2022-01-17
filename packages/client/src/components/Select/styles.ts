@@ -5,6 +5,7 @@ export const SelectWrapper = styled.div`
   position: relative;
   display: flex;
   align-items: center;
+  border-radius: 4px;
   cursor: pointer;
 `;
 export const SelectedOpt = styled.div`
@@ -22,6 +23,7 @@ export const SelectInnerWrapper = styled.div<{ isOpen: boolean }>`
   position: absolute;
   left: 0;
   top: 2.5rem;
+  z-index: 99;
   display: ${({ isOpen }) => (isOpen ? 'flex' : 'none')};
   flex-direction: column;
   min-width: 4rem;
