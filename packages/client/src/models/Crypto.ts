@@ -53,8 +53,3 @@ export interface CryptoHistoryResponseData {
   change: string;
   history: CryptoHistory[];
 }
-
-export interface CryptoTableData {
-  title: string;
-  value: string | number | boolean;
-}
