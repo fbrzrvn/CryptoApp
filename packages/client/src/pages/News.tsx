@@ -1,7 +1,5 @@
 import getNews from 'api/getNews';
-import { Dashboard, Loader, LoadError } from 'components';
-import NewsCard from 'components/NewsCard';
-import NewsTags from 'components/NewsTags';
+import { Dashboard, Loader, LoadError, NewsCard, NewsTags } from 'components';
 import { NewsMapped } from 'models/News';
 import React from 'react';
 import { useQuery } from 'react-query';

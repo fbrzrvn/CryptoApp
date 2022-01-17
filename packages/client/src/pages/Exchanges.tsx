@@ -1,6 +1,5 @@
 import getExchanges from 'api/getExchanges';
-import { Dashboard, Loader, LoadError } from 'components';
-import ExchangeCard from 'components/ExchangeCard';
+import { Dashboard, ExchangeCard, Loader, LoadError } from 'components';
 import { ExchangesMapped } from 'models/Exchanges';
 import React from 'react';
 import { useQuery } from 'react-query';

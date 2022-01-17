@@ -1,6 +1,5 @@
 import getCrypto from 'api/getCrypto';
-import { Dashboard, Loader, LoadError } from 'components';
-import CryptoDetails from 'components/CryptoDetails';
+import { CryptoDetails, Dashboard, Loader, LoadError } from 'components';
 import { CurrencyContext } from 'context/Currency';
 import { CryptoMapped } from 'models/Crypto';
 import React from 'react';
