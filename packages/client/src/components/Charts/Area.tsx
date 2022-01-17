@@ -1,6 +1,6 @@
 import getCryptoHistory from 'api/getCryptoHistory';
 import { Loader, LoadError } from 'components';
-import ChartsBtns from 'components/ChartBtns';
+import ChartTimePeriodBtn from 'components/ChartTimePeriodBtn';
 import CryptoOverview from 'components/CryptoOverview';
 import { CurrencyContext } from 'context/Currency';
 import { CryptoHistoryResponseData } from 'models/Crypto';
@@ -72,7 +72,10 @@ const AreaChart: React.VFC<ChartProps> = ({
             type="area"
             width="100%"
           />
-          <ChartsBtns timePeriod={timePeriod} setTimePeriod={setTimePeriod} />
+          <ChartTimePeriodBtn
+            timePeriod={timePeriod}
+            setTimePeriod={setTimePeriod}
+          />
         </>
       )}
     </>
