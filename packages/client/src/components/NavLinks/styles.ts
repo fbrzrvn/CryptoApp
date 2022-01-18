@@ -29,7 +29,7 @@ export const NavLinkItem = styled(NavLink)`
   }
   &.active {
     background-color: rgba(255, 255, 255, 0.1);
-    border-left: 6px solid ${COLORS.primary400};
+    border-left: 6px solid ${COLORS.blue700};
     color: ${COLORS.white};
   }
 `;
