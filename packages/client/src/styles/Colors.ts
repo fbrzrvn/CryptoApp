@@ -11,10 +11,6 @@ export const COLORS = {
   gris700: '#616161',
   gris800: '#424242',
   gris900: '#212121',
-  primary100: '#ffd180',
-  primary200: '#ffab40',
-  primary400: '#ff9100',
-  primary700: '#ff6d00',
   danger100: '#ffcdd2',
   danger300: '#e57373',
   danger500: '#f44336',
@@ -36,4 +32,7 @@ export const COLORS = {
   blue400: '#42a5f5',
   blue500: '#2196f3',
   blue700: '#1976d2',
+  blue900: '#0d47a1',
+  lightBlue50: '#f1f6ff',
+  lightBlue100: '#cee1ff',
 };
