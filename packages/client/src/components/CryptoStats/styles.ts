@@ -35,50 +35,6 @@ export const StatsTitle = styled.p`
   font-size: 1rem;
   user-select: none;
 `;
-export const InfoTooltipWrapper = styled.div`
-  position: relative;
-  flex: 1;
-`;
-export const StatsInfoIcon = styled(FontAwesomeIcon)`
-  height: auto;
-  width: 1.1rem;
-  background: ${COLORS.blue700};
-  border-radius: 50%;
-  color: ${COLORS.blue100};
-  opacity: 0.8;
-  transition: all 0.25s ease-in-out;
-  &:hover {
-    opacity: 1;
-  }
-`;
-export const InfoTooltip = styled.div<{ show: boolean }>`
-  position: absolute;
-  bottom: 2rem;
-  left: 60%;
-  transform: translateX(-40%);
-  display: ${({ show }) => (show ? 'block' : 'none')};
-  width: 280px;
-  padding: 0.75rem 1rem;
-  background: ${COLORS.blue50};
-  border-radius: 0.5rem;
-  color: ${COLORS.blue900};
-  font-weight: 500;
-  font-size: 1rem;
-  transition: all 0.25s ease-in-out;
-  &:after {
-    content: '';
-    position: absolute;
-    bottom: -0.5rem;
-    left: 40%;
-    transform: translateX(-60%);
-    border-left: 0.5rem solid transparent;
-    border-right: 0.5rem solid transparent;
-    border-top: 0.5rem solid ${COLORS.blue50};
-  }
-`;
-export const InfoTooltipText = styled.p`
-  font-size: 0.9rem;
-`;
 export const StatsValue = styled.p`
   color: ${COLORS.black};
   font-weight: 700;

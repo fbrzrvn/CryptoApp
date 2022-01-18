@@ -1,12 +1,12 @@
 import { faBitcoin } from '@fortawesome/free-brands-svg-icons';
 import {
-  faInfoCircle,
   faMedal,
   faMoneyBillWave,
   faTint,
   faTrophy,
   faWater,
 } from '@fortawesome/free-solid-svg-icons';
+import Tooltip from 'components/Tooltip';
 import { CurrencyContext } from 'context/Currency';
 import { millify } from 'millify';
 import { CryptoMapped } from 'models/Crypto';
@@ -14,13 +14,9 @@ import React from 'react';
 import { CryptoStatsData } from 'types/props';
 import { formatCurrency, getCurrencySymbol, IsLessThan } from 'utils';
 import {
-  InfoTooltip,
-  InfoTooltipText,
-  InfoTooltipWrapper,
   StatsComment,
   StatsContainer,
   StatsIcon,
-  StatsInfoIcon,
   StatsTitle,
   StatsValue,
   StatsWrapper,
@@ -29,15 +25,6 @@ import {
 
 const CrypoStats: React.VFC<CryptoMapped> = (crypto) => {
   const { currency } = React.useContext(CurrencyContext);
-  const [showTooltip, setShowTooltip] = React.useState({
-    11: false,
-    12: false,
-    13: false,
-    14: false,
-    15: false,
-    16: false,
-    17: false,
-  });
   const isLessThan768 = IsLessThan(768);
 
   const data: CryptoStatsData[] = [
@@ -120,28 +107,7 @@ const CrypoStats: React.VFC<CryptoMapped> = (crypto) => {
             ) : (
               <StatsTitle>{item.title}</StatsTitle>
             )}
-            {item.hasTooltip && (
-              <InfoTooltipWrapper>
-                <StatsInfoIcon
-                  icon={faInfoCircle}
-                  onMouseEnter={() =>
-                    setShowTooltip({
-                      ...showTooltip,
-                      [item.id]: true,
-                    })
-                  }
-                  onMouseLeave={() =>
-                    setShowTooltip({
-                      ...showTooltip,
-                      [item.id]: false,
-                    })
-                  }
-                />
-                <InfoTooltip show={showTooltip[item.id]}>
-                  <InfoTooltipText>{item.tooltipText}</InfoTooltipText>
-                </InfoTooltip>
-              </InfoTooltipWrapper>
-            )}
+            {item.hasTooltip && <Tooltip item={item} />}
           </StatsWrapperInner>
           <div>
             <StatsValue>{item.value}</StatsValue>
