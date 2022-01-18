@@ -39,16 +39,19 @@ const CrypoStats: React.VFC<CryptoMapped> = (crypto) => {
       id: 12,
       icon: faBitcoin,
       title: 'Price to BTC',
-      value: (+crypto.btcPrice).toFixed(4),
+      value: `${
+        +crypto.btcPrice >= 1 ? crypto.btcPrice : (+crypto.btcPrice).toFixed(9)
+      } BTC`,
       hasTooltip: false,
     },
     {
       id: 13,
       icon: faTrophy,
-      title: 'Rank',
+      title: "Coin's rank",
       value: crypto.rank,
       hasTooltip: true,
-      tooltipText: `A coin's place on coinranking global ranking (by highest market cup).`,
+      tooltipText:
+        'Rank is the position of the coin in the market (by highest market cup).',
     },
     {
       id: 14,
