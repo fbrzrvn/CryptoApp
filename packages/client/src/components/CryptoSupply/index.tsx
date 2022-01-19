@@ -10,6 +10,10 @@ import { CryptoMapped } from 'models/Crypto';
 import React from 'react';
 import {
   Container,
+  DetailsTooltip,
+  DetailsTooltipInner,
+  DetailsTooltipTitle,
+  DetailsTooltipValue,
   Overview,
   OverviewInfo,
   OverviewInfoInner,
@@ -80,11 +84,35 @@ const CryptoSupply: React.VFC<CryptoMapped> = (crypto) => {
                   crypto.supplyCorfirmed ? faCheckCircle : faExclamationCircle
                 }
               />
-              {crypto.supplyCorfirmed ? 'Verified supply' : 'Unverified supply'}
+              {crypto.supplyCorfirmed ? 'Verified' : 'Unverified'} supply
             </OverviewSupplyVerified>
-            <OverviewSupplyDetails>
-              <FontAwesomeIcon icon={faQuestionCircle} /> Details
-            </OverviewSupplyDetails>
+            <div style={{ position: 'relative' }}>
+              <OverviewSupplyDetails>
+                <FontAwesomeIcon icon={faQuestionCircle} /> Details
+                <DetailsTooltip>
+                  <DetailsTooltipInner>
+                    <DetailsTooltipTitle>Total supply</DetailsTooltipTitle>
+                    <DetailsTooltipValue>
+                      {millify(crypto.supplyTotal)}
+                    </DetailsTooltipValue>
+                  </DetailsTooltipInner>
+                  <DetailsTooltipInner>
+                    <DetailsTooltipTitle>
+                      There are no burned, team or smart contract locked
+                      balances to subtract.
+                    </DetailsTooltipTitle>
+                  </DetailsTooltipInner>
+                  <DetailsTooltipInner>
+                    <DetailsTooltipTitle>
+                      Circulating supply
+                    </DetailsTooltipTitle>
+                    <DetailsTooltipValue>
+                      {millify(crypto.supplyCirculating)}
+                    </DetailsTooltipValue>
+                  </DetailsTooltipInner>
+                </DetailsTooltip>
+              </OverviewSupplyDetails>
+            </div>
           </OverviewInfoInner>
         </OverviewInfo>
       </Overview>
