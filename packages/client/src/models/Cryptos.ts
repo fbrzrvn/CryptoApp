@@ -1,4 +1,4 @@
-export interface Cryptos {
+export interface ICryptos {
   '24hVolume': string;
   btcPrice: string;
   change: string;
@@ -30,9 +30,21 @@ export interface CryptosMapped {
   uuid: string;
 }
 
+export interface CryptosStats {
+  total: number;
+  total24Volume: string;
+  totalCoins: number;
+  totalExchanges: number;
+  totalMarketCap: string;
+  totalMarkets: number;
+}
+
 export interface CryptosResponse {
   status: string;
-  data: {
-    coins: Cryptos[];
-  };
+  data: CryptosResponseData;
+}
+
+export interface CryptosResponseData {
+  coins: ICryptos[];
+  stats: CryptosStats;
 }

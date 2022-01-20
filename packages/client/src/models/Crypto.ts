@@ -1,6 +1,6 @@
-import { Cryptos, CryptosMapped } from './Cryptos';
+import { CryptosMapped, ICryptos } from './Cryptos';
 
-export interface Crypto extends Cryptos {
+export interface Crypto extends ICryptos {
   allTimeHigh: CryptoHistory;
   description: string;
   links: CryptoLinks[];

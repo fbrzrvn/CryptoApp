@@ -1,6 +1,6 @@
-import { Cryptos, CryptosMapped } from 'models/Cryptos';
+import { CryptosMapped, ICryptos } from 'models/Cryptos';
 
-const mapCryptos = (source: Cryptos): CryptosMapped => {
+const mapCryptos = (source: ICryptos): CryptosMapped => {
   return {
     '24hVolume': +source['24hVolume'],
     btcPrice: source.btcPrice,
