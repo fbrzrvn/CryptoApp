@@ -1,6 +1,4 @@
-import { AreaChart } from 'components/Charts';
-import CryptoStats from 'components/CryptoStats';
-import CryptoSupply from 'components/CryptoSupply';
+import { AreaChart, CryptoStats, CryptoSupply } from 'components';
 import { currencies } from 'constants/currencies';
 import { iconsLinks } from 'constants/iconsLinks';
 import { CurrencyContext } from 'context/Currency';

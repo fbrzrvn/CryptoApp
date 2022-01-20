@@ -1,5 +1,4 @@
-import Header from 'components/Header';
-import Sidebar from 'components/Sidebar';
+import { Header, Sidebar } from 'components';
 import React, { useState } from 'react';
 import { ChildrenProps } from 'types/props';
 import { IsLessThan } from 'utils';

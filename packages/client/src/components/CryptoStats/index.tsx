@@ -6,7 +6,7 @@ import {
   faTrophy,
   faWater,
 } from '@fortawesome/free-solid-svg-icons';
-import Tooltip from 'components/Tooltip';
+import { Tooltip } from 'components';
 import { CurrencyContext } from 'context/Currency';
 import { millify } from 'millify';
 import { CryptoMapped } from 'models/Crypto';

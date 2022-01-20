@@ -2,7 +2,7 @@ import {
   faLongArrowAltDown,
   faLongArrowAltUp,
 } from '@fortawesome/free-solid-svg-icons';
-import { SparklineChart } from 'components/Charts';
+import { SparklineChart } from 'components';
 import { CryptosMapped } from 'models/Cryptos';
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
