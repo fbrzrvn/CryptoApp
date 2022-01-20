@@ -1,24 +1,18 @@
-import { faQuestionCircle } from '@fortawesome/free-regular-svg-icons';
 import {
   faCheckCircle,
   faExclamationCircle,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import Tooltip from 'components/Tooltip';
+import { DetailsTooltip, Tooltip } from 'components';
 import { millify } from 'millify';
 import { CryptoMapped } from 'models/Crypto';
 import React from 'react';
 import {
   Container,
-  DetailsTooltip,
-  DetailsTooltipInner,
-  DetailsTooltipTitle,
-  DetailsTooltipValue,
   Overview,
   OverviewInfo,
   OverviewInfoInner,
   OverviewPercentage,
-  OverviewSupplyDetails,
   OverviewSupplyVerified,
   Percentage,
   Wrapper,
@@ -86,33 +80,10 @@ const CryptoSupply: React.VFC<CryptoMapped> = (crypto) => {
               />
               {crypto.supplyCorfirmed ? 'Verified' : 'Unverified'} supply
             </OverviewSupplyVerified>
-            <div style={{ position: 'relative' }}>
-              <OverviewSupplyDetails>
-                <FontAwesomeIcon icon={faQuestionCircle} /> Details
-                <DetailsTooltip>
-                  <DetailsTooltipInner>
-                    <DetailsTooltipTitle>Total supply</DetailsTooltipTitle>
-                    <DetailsTooltipValue>
-                      {millify(crypto.supplyTotal)}
-                    </DetailsTooltipValue>
-                  </DetailsTooltipInner>
-                  <DetailsTooltipInner>
-                    <DetailsTooltipTitle>
-                      There are no burned, team or smart contract locked
-                      balances to subtract.
-                    </DetailsTooltipTitle>
-                  </DetailsTooltipInner>
-                  <DetailsTooltipInner>
-                    <DetailsTooltipTitle>
-                      Circulating supply
-                    </DetailsTooltipTitle>
-                    <DetailsTooltipValue>
-                      {millify(crypto.supplyCirculating)}
-                    </DetailsTooltipValue>
-                  </DetailsTooltipInner>
-                </DetailsTooltip>
-              </OverviewSupplyDetails>
-            </div>
+            <DetailsTooltip
+              totalSupply={crypto.supplyTotal}
+              circulatingSupply={crypto.supplyCirculating}
+            />
           </OverviewInfoInner>
         </OverviewInfo>
       </Overview>
