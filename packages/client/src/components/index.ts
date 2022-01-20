@@ -11,6 +11,7 @@ import Loader from './Loader';
 import LoadError from './LoadError';
 import NewsCard from './NewsCard';
 import NewsTags from './NewsTags';
+import Pagination from './Pagination';
 import Select from './Select';
 import Sidebar from './Sidebar';
 import Tooltip from './Tooltip';
@@ -29,6 +30,7 @@ export {
   LoadError,
   NewsCard,
   NewsTags,
+  Pagination,
   Select,
   Sidebar,
   SparklineChart,
