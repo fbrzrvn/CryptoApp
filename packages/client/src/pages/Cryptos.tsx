@@ -37,12 +37,6 @@ const Cryptos: React.VFC = () => {
           <h2>All cryptocurrency prices</h2>
           <Select />
         </FlexBetweenLayout>
-        {data && offset === 0 && (
-          <>
-            <h3>Total coins: {data?.stats.totalCoins}</h3>
-            <h3>Total markets: {data?.stats.totalMarkets}</h3>
-          </>
-        )}
         <GridLayout>
           {isLoading && <Loader />}
           {isError && <LoadError error={error.message} />}

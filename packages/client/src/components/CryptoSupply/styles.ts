@@ -50,13 +50,11 @@ export const OverviewInfo = styled.div`
 export const OverviewInfoInner = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 1rem;
   @media (min-width: 680px) {
     flex-direction: row;
   }
   @media screen and (min-width: 1280px) {
     flex-direction: column;
-    margin-bottom: 1rem;
   }
 `;
 export const OverviewSupplyVerified = styled.a`
